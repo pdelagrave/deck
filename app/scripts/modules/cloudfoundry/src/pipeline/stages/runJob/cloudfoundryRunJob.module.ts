@@ -16,6 +16,5 @@ Registry.pipeline.registerStage({
     { type: 'requiredField', fieldName: 'cluster' },
     { type: 'requiredField', fieldName: 'target' },
     { type: 'requiredField', fieldName: 'command' },
-    { type: 'requiredField', fieldName: 'jobName' },
   ],
 });

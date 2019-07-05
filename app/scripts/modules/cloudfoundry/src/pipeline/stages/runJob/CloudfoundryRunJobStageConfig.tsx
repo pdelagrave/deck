@@ -56,17 +56,13 @@ export class CloudfoundryRunJobStageConfig extends React.Component<
     this.props.updateStageField({ command: event.target.value });
   };
 
-  private JobNameUpdated = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.updateStageField({ jobName: event.target.value });
-  };
-
   private targetUpdated = (target: string) => {
     this.props.updateStageField({ target });
   };
 
   public render() {
     const { application, stage } = this.props;
-    const { command, jobName, target } = stage;
+    const { command, target } = stage;
     const { accounts } = this.state;
     const { TargetSelect } = NgReact;
 
@@ -85,9 +81,6 @@ export class CloudfoundryRunJobStageConfig extends React.Component<
         </StageConfigField>
         <StageConfigField label="Command">
           <TextInput type="text" className="form-control" onChange={this.commandUpdated} value={command} />
-        </StageConfigField>
-        <StageConfigField label="Job Name">
-          <TextInput type="text" className="form-control" onChange={this.JobNameUpdated} value={jobName} />
         </StageConfigField>
       </div>
     );
