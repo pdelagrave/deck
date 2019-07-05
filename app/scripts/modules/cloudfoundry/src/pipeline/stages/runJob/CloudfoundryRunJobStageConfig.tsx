@@ -8,6 +8,7 @@ import {
   NgReact,
   StageConfigField,
   StageConstants,
+  CheckboxInput,
   TextInput,
 } from '@spinnaker/core';
 
@@ -81,6 +82,12 @@ export class CloudfoundryRunJobStageConfig extends React.Component<
         </StageConfigField>
         <StageConfigField label="Command">
           <TextInput type="text" className="form-control" onChange={this.commandUpdated} value={command} />
+        </StageConfigField>
+        <StageConfigField label="Save logs to stage context" helpKey="stage.config.runJob.cloudfoundry.saveLogs">
+          <CheckboxInput
+            checked={stage.propertyFile != null}
+            onChange={(e: any) => this.props.updateStageField({ propertyFile: e.target.checked ? 'recentLogs' : null })}
+          />
         </StageConfigField>
       </div>
     );
